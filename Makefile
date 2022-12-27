@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2022/12/27 13:11:16 by franmart         ###   ########.fr        #
+#    Updated: 2022/12/27 15:42:17 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,12 @@ LIBFT_DIR = lib/libft
 INCLUDES = -Iinc -L ${LIBFT_DIR} -lft
 
 ${NAME}: ${OBJ}
-	$(MAKE) all -C  $(LIBFT_DIR)
+	$(MAKE) all bonus -C  $(LIBFT_DIR)
 	$(CC) $(INCLUDES) $(OBJ) -o $(NAME) $(INCLUDES)
 	@echo "$(NAME) compiled!"
 
 %.o: %.c
-	@${CC} ${FLAGS} -c $^ -o $@
+	@${CC} ${FLAGS} -c $^ -o $@ -g3
 
 all:
 	@${NAME}
