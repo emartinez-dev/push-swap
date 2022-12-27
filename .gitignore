@@ -1,5 +1,7 @@
 .vscode/
 *.swp
+push_swap
+
 # Prerequisites
 *.d
 
