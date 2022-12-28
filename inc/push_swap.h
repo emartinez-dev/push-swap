@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 18:18:49 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:19:24 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../lib/libft/include/libft.h"
-
-int		secure_atoi(char *nbr, int *input);
-int		check_duplicates(int *input, int len);
-t_list	*create_list(int *input, int len);
-int		*parse_params(int argc, char **argv);
-void	do_nothing(void *ptr);
-int		is_sorted(t_list *stack);
 
 typedef struct s_push_swap
 {
@@ -30,5 +23,17 @@ typedef struct s_push_swap
 	int		arr_len;
 	t_list	*moves;
 }	t_push_swap;
+
+int		secure_atoi(char *nbr, int *input);
+int		check_duplicates(int *input, int len);
+t_list	*create_list(int *input, int len);
+int		*parse_params(int argc, char **argv);
+void	do_nothing(void *ptr);
+int		is_sorted(t_list *stack);
+void	print_stacks(t_push_swap *ps);
+
+int		swap_a(t_push_swap *ps);
+int		swap_b(t_push_swap *ps);
+int		swap_s(t_push_swap *ps);
 
 #	endif
