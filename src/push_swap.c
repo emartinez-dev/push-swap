@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 20:11:09 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:53:03 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	main(int argc, char **argv)
 		ft_printf("No está ordenado\n");
 	*/
 	print_stacks(&ps);
-	push_b(&ps);
-	push_a(&ps);
+	rotate_r(&ps);
 	print_stacks(&ps);
 	free(ps.int_array);
 	ft_lstclear(&ps.stack_a, do_nothing);
