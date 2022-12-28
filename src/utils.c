@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 17:41:48 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 18:01:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,15 @@ puntero de ints
 void	do_nothing(void *ptr)
 {
 	(void) ptr;
+}
+
+int	is_sorted(t_list *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (*(int *)stack->content > *(int *)stack->next->content)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

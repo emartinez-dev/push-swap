@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2022/12/28 17:40:18 by franmart         ###   ########.fr        #
+#    Updated: 2022/12/28 18:22:13 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,11 @@ RM = rm -rf
 SRC_DIR = src/
 _SRC = 	parser.c\
 		push_swap.c\
+		sort.c\
+		swaps.c\
+		pushes.c\
+		rotates.c\
+		reverse_rotates.c\
 		utils.c
 
 SRC = ${addprefix ${SRC_DIR}, ${_SRC}}
