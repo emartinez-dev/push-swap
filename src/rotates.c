@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:37 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 20:53:57 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:12:36 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,31 @@
 
 int	rotate_a(t_push_swap *ps)
 {
-	t_list	*penultimate;
+	t_list	*first;
 	t_list	*last;
 
 	if (!ps->stack_a || ps->stack_a->next == NULL)
 		return (0);
-	penultimate = ps->stack_a;
+	first = ps->stack_a;
+	ps->stack_a = ps->stack_a->next;
 	last = ft_lstlast(ps->stack_a);
-	while (penultimate->next != last)
-		penultimate = penultimate->next;
-	penultimate->next = 0;
-	last->next = ps->stack_a;
-	ps->stack_a = last;
+	first->next = 0;
+	last->next = first;
 	return (1);
 }
 
 int	rotate_b(t_push_swap *ps)
 {
-	t_list	*penultimate;
+	t_list	*first;
 	t_list	*last;
 
 	if (!ps->stack_b || ps->stack_b->next == NULL)
 		return (0);
-	penultimate = ps->stack_b;
+	first = ps->stack_b;
+	ps->stack_b = ps->stack_b->next;
 	last = ft_lstlast(ps->stack_b);
-	while (penultimate->next != last)
-		penultimate = penultimate->next;
-	penultimate->next = 0;
-	last->next = ps->stack_b;
-	ps->stack_b = last;
+	first->next = 0;
+	last->next = first;
 	return (1);
 }
 

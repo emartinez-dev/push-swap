@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 20:53:17 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:12:12 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ int		push_b(t_push_swap *ps);
 int		rotate_a(t_push_swap *ps);
 int		rotate_b(t_push_swap *ps);
 int		rotate_r(t_push_swap *ps);
+
+int		reverse_rotate_a(t_push_swap *ps);
+int		reverse_rotate_b(t_push_swap *ps);
+int		reverse_rotate_r(t_push_swap *ps);
 
 #	endif
