@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 19:13:09 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 20:11:09 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ int	main(int argc, char **argv)
 		ft_printf("No está ordenado\n");
 	*/
 	print_stacks(&ps);
-	swap_a(&ps);
+	push_b(&ps);
+	push_a(&ps);
 	print_stacks(&ps);
 	free(ps.int_array);
 	ft_lstclear(&ps.stack_a, do_nothing);
+	ft_lstclear(&ps.stack_b, do_nothing);
 	return (0);
 }

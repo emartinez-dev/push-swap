@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 19:19:24 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:30:36 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ void	print_stacks(t_push_swap *ps);
 int		swap_a(t_push_swap *ps);
 int		swap_b(t_push_swap *ps);
 int		swap_s(t_push_swap *ps);
+
+int		push_a(t_push_swap *ps);
+int		push_b(t_push_swap *ps);
 
 #	endif
