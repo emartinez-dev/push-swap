@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/27 14:24:00 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/28 11:48:26 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,24 @@ int	check_duplicates(int *input, int len)
 	return (0);
 }
 
-int	parse_params(int argc, char **argv)
+t_list *create_list(int *input, int len)
+{
+	t_list	*new;
+	t_list	*stack;
+	int		i;
+
+	stack = NULL;
+	i = 0;
+	while (i < len)
+	{
+		new = ft_lstnew(&input[i]);
+		ft_lstadd_back(&stack, new);
+		i++;
+	}
+	return (stack);
+}
+
+int	*parse_params(int argc, char **argv)
 {
 	int		i;
 	int		param_value;
@@ -75,7 +92,6 @@ int	parse_params(int argc, char **argv)
 	{
 		param_value = secure_atoi(argv[i], input);
 		input[i - 1] = param_value;
-		ft_printf("%d\n", param_value);
 		i++;
 	}
 	if (check_duplicates(input, argc - 1))
@@ -83,14 +99,35 @@ int	parse_params(int argc, char **argv)
 		free(input);
 		exit(2);
 	}
-	return (0);
+	return (input);
+}
+
+/* el por qué de esta función: los arrays de int se liberan todos de una,
+entonces al utilizar lstclear, que aplica una función en cada elemento de la
+lista, no tiene que hacer nada porque ya se está liberando desde fuera ese
+puntero de ints
+*/
+void	do_nothing(void *ptr)
+{
+	(void) ptr;
 }
 
 int	main(int argc, char **argv)
 {
-	int	status;
+	t_list	*stack;
+	t_list	*head_node;
+	int		*int_array;
 
-	status = parse_params(argc, argv);
-	ft_printf("Status: %d\n", status);
+	int_array = parse_params(argc, argv);
+	stack = create_list(int_array, argc - 1);
+	head_node = stack;
+	while (stack != NULL)
+	{
+		ft_printf("n: %d\n", *((int *)stack->content));
+		stack = stack->next;
+	}
+	ft_printf("Head node: %d\n", *((int *)head_node->content));
+	free(int_array);
+	ft_lstclear(&stack, do_nothing);
 	return (0);
 }
