@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/29 14:48:53 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:14:08 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,6 @@ t_list	*create_list(int *input_arr, int arr_len)
 		i++;
 	}
 	return (stack);
-}
-
-int	count_params(int argc, char **argv)
-{
-	int	i;
-	int	count;
-	int	total;
-
-	i = 1;
-	total = 0;
-	while (i < argc)
-	{
-		if (ft_strchr(argv[i], ' ') != 0)
-		{
-			count = ft_count_words(argv[i], ' ') - 1;
-			total += count - 1;
-		}
-		i++;
-	}
-	total += i - 1;
-	return (total);
 }
 
 /* esta función es bastante compleja porque hay 3 contadores, i, j y arr_i 

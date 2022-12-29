@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/29 14:43:48 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 16:14:07 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,25 @@ void	free_array(char **arr)
 	}
 	free(arr);
 }
+
+int	count_params(int argc, char **argv)
+{
+	int	i;
+	int	count;
+	int	total;
+
+	i = 1;
+	total = 0;
+	while (i < argc)
+	{
+		if (ft_strchr(argv[i], ' ') != 0)
+		{
+			count = ft_count_words(argv[i], ' ') - 1;
+			total += count - 1;
+		}
+		i++;
+	}
+	total += i - 1;
+	return (total);
+}
+
