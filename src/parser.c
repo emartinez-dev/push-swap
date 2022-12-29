@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 17:52:16 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:48:53 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	secure_atoi(char *atoi_nbr, int *input_arr)
 	return (number);
 }
 
-int	check_duplicates(int *input_arr, int arr_len)
+void	check_duplicates(int *input_arr, int arr_len)
 {
 	int	i;
 	int	j;
@@ -54,13 +54,13 @@ int	check_duplicates(int *input_arr, int arr_len)
 			{
 				ft_printf("Error: Input number %d is duplicated.\n",
 					input_arr[i]);
-				return (1);
+				free(input_arr);
+				exit(2);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (0);
 }
 
 t_list	*create_list(int *input_arr, int arr_len)
@@ -80,24 +80,57 @@ t_list	*create_list(int *input_arr, int arr_len)
 	return (stack);
 }
 
-int	*parse_params(int argc, char **argv)
+int	count_params(int argc, char **argv)
 {
-	int		i;
-	int		param_nbr;
-	int		*input_arr;
+	int	i;
+	int	count;
+	int	total;
 
-	input_arr = ft_calloc(argc - 1, sizeof(int));
 	i = 1;
+	total = 0;
 	while (i < argc)
 	{
-		param_nbr = secure_atoi(argv[i], input_arr);
-		input_arr[i - 1] = param_nbr;
+		if (ft_strchr(argv[i], ' ') != 0)
+		{
+			count = ft_count_words(argv[i], ' ') - 1;
+			total += count - 1;
+		}
 		i++;
 	}
-	if (check_duplicates(input_arr, argc - 1))
+	total += i - 1;
+	return (total);
+}
+
+/* esta función es bastante compleja porque hay 3 contadores, i, j y arr_i 
+arr_i controla en qué posición del array de enteros se pone cada número
+i controla el bucle de los argumentos
+j controla el bucle de los argumentos compuestos, los que pasen más de un param
+*/
+void	parse_params(int argc, char **argv, t_push_swap *ps)
+{
+	int		i;
+	int		j;
+	int		arr_i;
+	char	**s_arg;
+
+	ps->int_array = ft_calloc(ps->arr_len, sizeof(int));
+	i = 1;
+	arr_i = 0;
+	while (i < argc)
 	{
-		free(input_arr);
-		exit(2);
+		if (ft_strchr(argv[i], ' ') == 0)
+			ps->int_array[arr_i] = secure_atoi(argv[i], ps->int_array);
+		else
+		{
+			j = -1;
+			s_arg = ft_split(argv[i], ' ');
+			while (s_arg[++j])
+				ps->int_array[arr_i + j] = secure_atoi(s_arg[j], ps->int_array);
+			arr_i++;
+			free_array(s_arg);
+		}
+		arr_i++;
+		i++;
 	}
-	return (input_arr);
+	check_duplicates(ps->int_array, ps->arr_len);
 }

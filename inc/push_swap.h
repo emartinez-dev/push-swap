@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 21:12:12 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:04:02 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 int		secure_atoi(char *nbr, int *input);
-int		check_duplicates(int *input, int len);
+void	check_duplicates(int *input_arr, int arr_len);
 t_list	*create_list(int *input, int len);
-int		*parse_params(int argc, char **argv);
+void	parse_params(int argc, char **argv, t_push_swap *ps);
 void	do_nothing(void *ptr);
 int		is_sorted(t_list *stack);
 void	print_stacks(t_push_swap *ps);
+void	free_array(char **arr);
+int		count_params(int argc, char **argv);
 
 int		swap_a(t_push_swap *ps);
 int		swap_b(t_push_swap *ps);

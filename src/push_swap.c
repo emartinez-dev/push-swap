@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 21:14:30 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:48:33 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 int	main(int argc, char **argv)
 {
 	t_push_swap	ps;
+	t_list		*stack_a;
 
-	ps.int_array = parse_params(argc, argv);
-	ps.arr_len = argc - 1;
+	ps.arr_len = count_params(argc, argv);
+	parse_params(argc, argv, &ps);
 	ps.stack_a = create_list(ps.int_array, ps.arr_len);
 	ps.stack_b = 0;
-	/*
+	stack_a = ps.stack_a;
 	while (stack_a != NULL)
 	{
 		ft_printf("n: %d\n", *((int *)stack_a->content));
@@ -30,13 +31,6 @@ int	main(int argc, char **argv)
 		ft_printf("Está ordenado\n");
 	else
 		ft_printf("No está ordenado\n");
-	*/
-	print_stacks(&ps);
-	push_b(&ps);
-	push_b(&ps);
-	print_stacks(&ps);
-	rotate_a(&ps);
-	reverse_rotate_a(&ps);
 	print_stacks(&ps);
 	free(ps.int_array);
 	ft_lstclear(&ps.stack_a, do_nothing);

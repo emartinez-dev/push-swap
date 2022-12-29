@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/28 20:11:49 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/29 14:43:48 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,17 @@ void	print_stacks(t_push_swap *ps)
 		stack_b = stack_b->next;
 	}
 	ft_printf("\n\n");
+}
+
+void	free_array(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr && arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
 }
