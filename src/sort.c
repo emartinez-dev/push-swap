@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 18:14:24 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/30 20:21:19 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	sort_3(t_push_swap *ps)
 	int max;
 	int	min;
 
+	if (is_sorted(ps->a))
+		return ;
 	max = get_max(ps->a);
 	min = get_min(ps->a);
 	if (*(int *)ps->a->content == max && *(int *)ps->a->next->content == min)
@@ -39,11 +41,40 @@ void	sort_3(t_push_swap *ps)
 
 void	sort_5(t_push_swap *ps)
 {
+	int	rotations_a;
+
+	rotations_a = 0;
 	if (!is_sorted(ps->a))
 	{
 		push_b(ps);
 		push_b(ps);
-		sort_3(ps);
+	}
+	sort_3(ps);
+	while (!is_sorted(ps->a) || ps->b != NULL)
+	{
+		if (rotations_a != 0)
+			push_a(ps);
+		while (rotations_a > 0)
+		{
+			reverse_rotate_a(ps, 0);
+			rotations_a--;
+		}
+		//ft_printf("Max B %d - Max A %d\n", get_max(ps->b),get_max(ps->a));
+		if (*(int *)ps->b->content < *(int *)ps->a->content)
+			push_a(ps);
+		else if (*(int *)ps->b->content > get_max(ps->a))
+		{
+			push_a(ps);
+			rotate_a(ps, 0);
+		}
+		else if (ps->b != NULL)
+		{
+			while (*(int *)ps->b->content > *(int *)ps->a->content)
+			{
+				rotate_a(ps, 0);
+				rotations_a++;
+			}
+		}
 	}
 }
 
