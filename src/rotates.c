@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:37 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/29 16:44:03 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	rotate_a(t_push_swap *ps, int mute)
 	t_list	*first;
 	t_list	*last;
 
-	if (!ps->stack_a || ps->stack_a->next == NULL)
+	if (!ps->a || ps->a->next == NULL)
 		return (0);
-	first = ps->stack_a;
-	ps->stack_a = ps->stack_a->next;
-	last = ft_lstlast(ps->stack_a);
+	first = ps->a;
+	ps->a = ps->a->next;
+	last = ft_lstlast(ps->a);
 	first->next = 0;
 	last->next = first;
 	if (!mute)
@@ -34,11 +34,11 @@ int	rotate_b(t_push_swap *ps, int mute)
 	t_list	*first;
 	t_list	*last;
 
-	if (!ps->stack_b || ps->stack_b->next == NULL)
+	if (!ps->b || ps->b->next == NULL)
 		return (0);
-	first = ps->stack_b;
-	ps->stack_b = ps->stack_b->next;
-	last = ft_lstlast(ps->stack_b);
+	first = ps->b;
+	ps->b = ps->b->next;
+	last = ft_lstlast(ps->b);
 	first->next = 0;
 	last->next = first;
 	if (!mute)

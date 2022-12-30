@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/29 16:14:07 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	print_stacks(t_push_swap *ps)
 	t_list	*stack_b;
 
 	ft_printf("Stack A\n");
-	stack_a = ps->stack_a;
-	stack_b = ps->stack_b;
+	stack_a = ps->a;
+	stack_b = ps->b;
 	while (stack_a != NULL)
 	{
 		ft_printf("%d\t", *(int *)stack_a->content);
