@@ -6,17 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 18:01:12 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:14:24 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	sort_2(t_push_swap *ps)
-{
-	if (!is_sorted(ps->a))
-		rotate_a(ps, 0);
-}
 
 void	sort_3(t_push_swap *ps)
 {
@@ -43,10 +37,20 @@ void	sort_3(t_push_swap *ps)
 		swap_a(ps, 0);
 }
 
+void	sort_5(t_push_swap *ps)
+{
+	if (!is_sorted(ps->a))
+	{
+		push_b(ps);
+		push_b(ps);
+		sort_3(ps);
+	}
+}
+
 void	sort(t_push_swap *ps)
 {
-	if (ps->arr_len == 2)
-		sort_2(ps);
-	else if (ps->arr_len == 3)
+	if (ps->arr_len <= 3)
 		sort_3(ps);
+	else if (ps->arr_len <= 5)
+		sort_5(ps);
 }

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:15 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/30 18:15:10 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	push_a(t_push_swap *ps)
 	ft_lstadd_front(&ps->a, new);
 	ps->b = ps->b->next;
 	ft_lstdelone(temp, do_nothing);
+	ft_printf("pa\n");
 	return (1);
 }
 
@@ -43,5 +44,6 @@ int	push_b(t_push_swap *ps)
 	ft_lstadd_front(&ps->b, new);
 	ps->a = ps->a->next;
 	ft_lstdelone(temp, do_nothing);
+	ft_printf("pb\n");
 	return (1);
 }
