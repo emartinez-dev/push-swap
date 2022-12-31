@@ -12,7 +12,7 @@ def configure_logger(args):
 	if args.verbose == "WARNING":
 		log.basicConfig(format="%(levelname)s: %(message)s", level=log.WARNING)
 	else:
-		log.basicConfig(format="%(levelname)s: %(message)s", level=log.ERROR)
+		log.basicConfig(format="%(levelname)s: %(message)s", level=log.CRITICAL)
 
 def test_push_swap(array_len: int, move_limit: int):
 	assert array_len > 0, "Amount of numbers must be more than 0"
@@ -23,8 +23,15 @@ def test_push_swap(array_len: int, move_limit: int):
 	more_than_limit = 0
 
 	random_list = random.sample(range(-2147483648, 2147483648), array_len)
+	if array_len <= 5:
+		perm = permutations(random_list)
+	else:
+		perm = set()
+		for i in range(array_len):
+			random.shuffle(random_list)
+			perm.add(tuple(random_list))
+
 	log.info(f"Sequence that will be permutated into Push_Swap\n{random_list}\n")
-	perm = permutations(random_list)
 
 	for i in list(perm):
 		i = list(i)
