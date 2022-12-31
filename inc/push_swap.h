@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/31 13:07:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ void	sort(t_push_swap *ps);
 /* sort_utils.c */
 int		get_max(t_list *stack);
 int		get_min(t_list *stack);
+void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max);
 
 #	endif
