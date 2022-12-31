@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/31 13:15:54 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:10:03 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	get_min(t_list *stack)
 	while (head != NULL)
 	{
 		if (*(int *)head->content < temp_min)
-			temp_min= *(int *)head->content;
+			temp_min = *(int *)head->content;
 		head = head->next;
 	}
 	return (temp_min);
@@ -69,9 +69,9 @@ void	n_rotations(t_push_swap *ps, char stack, int n, int reverse)
 	}
 }
 
-int		get_median_index(t_list *stack, int min, int max)
+int	get_median_index(t_list *stack, int min, int max)
 {
-	t_list 	*head;
+	t_list	*head;
 	int		median_pos;
 	int		i;
 

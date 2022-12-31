@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/31 13:07:25 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:08:57 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_3(t_push_swap *ps)
 {
-	int max;
+	int	max;
 	int	min;
 
 	if (is_sorted(ps->a))
@@ -51,7 +51,7 @@ void	sort_5(t_push_swap *ps)
 		if (*(int *)ps->a->content == min || *(int *)ps->a->content == max)
 			push_b(ps);
 		else
-			optimum_rotate(ps,'a', min, max);
+			optimum_rotate(ps, 'a', min, max);
 	}
 	sort_3(ps);
 	while (ps->b != NULL)

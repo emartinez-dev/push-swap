@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/31 14:10:22 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,3 @@ int	count_params(int argc, char **argv)
 	total += i - 1;
 	return (total);
 }
-
