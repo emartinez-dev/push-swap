@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/31 13:13:27 by franmart         ###   ########.fr       */
+/*   Updated: 2022/12/31 13:15:54 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	n_rotations(t_push_swap *ps, char stack, int n, int reverse)
 	int	i;
 
 	i = 0;
-	print_stacks(ps);
-	ft_printf("N rotations: %d\n", n);
 	while (i < n)
 	{
 		if (stack == 'a')
