@@ -21,6 +21,7 @@ def test_push_swap(array_len: int, move_limit: int):
 	ko = 0
 	error = 0
 	more_than_limit = 0
+	total_instructions = 0
 
 	random_list = random.sample(range(-2147483648, 2147483648), array_len)
 	if array_len <= 5:
@@ -39,6 +40,7 @@ def test_push_swap(array_len: int, move_limit: int):
 		ps_output = subprocess.getoutput(f"./push_swap {ps_input} | ./checker {ps_input}")
 		ps_instructions = subprocess.getoutput(f"./push_swap {ps_input}").split("\n")
 		n_instructions = len(ps_instructions)
+		total_instructions += n_instructions
 
 		if ps_output == "OK":
 			if n_instructions > move_limit and move_limit > 0:
@@ -58,8 +60,11 @@ def test_push_swap(array_len: int, move_limit: int):
 			error += 1
 
 	total = ok + ko + error + more_than_limit
-	print(f"N of permutations: {total}\n"\
+	print(f"N of tests: {total}\n"\
 		f"OK: {ok}\nKO: {ko}\nOver limit: {more_than_limit}\nError: {error}")
+	print("="*80)
+	print(f"Size of the input: {array_len} numbers. Average number of moves: {total_instructions / total}")
+	print("="*80)
 
 parser = argparse.ArgumentParser()
 
@@ -68,7 +73,9 @@ parser.add_argument("-n", "--numbers",
 					required=True,
 					type=int)
 parser.add_argument("-l", "--limit", help="Maximum move limit", default=0, type=int)
-parser.add_argument("-v", "--verbose", help="Log level for the tester. WARNING gives info about incorrectly sorted sequences, and INFO also prints the push_swap instructions for these sequences", choices=["INFO", "WARNING"], default="ERROR")
+parser.add_argument("-v", "--verbose", help="Log level for the tester. "\
+	"WARNING gives info about incorrectly sorted sequences, and INFO also"\
+	"prints the push_swap instructions for these sequences", choices=["INFO", "WARNING"], default="ERROR")
 
 args = parser.parse_args()
 
