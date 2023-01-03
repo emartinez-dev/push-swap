@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2023/01/03 12:46:39 by franmart         ###   ########.fr        #
+#    Updated: 2023/01/03 12:47:25 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_DIR = src/
 _SRC = 	parser.c\
 		push_swap.c\
 		sort.c\
+		sort_big.c\
 		sort_utils.c\
 		swaps.c\
 		pushes.c\
