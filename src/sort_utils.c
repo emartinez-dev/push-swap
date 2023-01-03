@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 12:44:43 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:33:26 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	get_median(t_list *stack)
 	int		size;
 	int		i;
 	t_list	*head;
+	int		median;
 
 	i = -1;
 	size = ft_lstsize(stack);
@@ -79,9 +80,13 @@ int	get_median(t_list *stack)
 		array[i] = *(int *)head->content;
 		head = head->next;
 	}
+	sort_array(array, size);
 	if (size % 2 != 0)
-		return (array[size / 2]);
-	return ((array[size / 2 - 1] + array[size / 2]) / 2);
+		median = array[size / 2];
+	else
+		median = (array[size / 2 - 1] + array[size / 2]) / 2;
+	free(array);
+	return (median);
 }
 
 /*
