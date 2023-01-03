@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:37 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:09:22 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,29 @@ int	rotate_r(t_push_swap *ps)
 	rotate_b(ps, 1);
 	ft_printf("rr\n");
 	return (1);
+}
+
+void	rotate_n(t_push_swap *ps, char stack, int n, int reverse)
+{
+	int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (stack == 'a')
+		{
+			if (reverse == 1)
+				reverse_rotate_a(ps, 0);
+			else
+				rotate_a(ps, 0);
+		}
+		if (stack == 'b')
+		{
+			if (reverse == 1)
+				reverse_rotate_b(ps, 0);
+			else
+				rotate_b(ps, 0);
+		}
+		i++;
+	}
 }

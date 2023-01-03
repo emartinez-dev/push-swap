@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/31 14:10:03 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:08:45 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,48 +44,23 @@ int	get_min(t_list *stack)
 	return (temp_min);
 }
 
-void	n_rotations(t_push_swap *ps, char stack, int n, int reverse)
-{
-	int	i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (stack == 'a')
-		{
-			if (reverse == 1)
-				reverse_rotate_a(ps, 0);
-			else
-				rotate_a(ps, 0);
-		}
-		if (stack == 'b')
-		{
-			if (reverse == 1)
-				reverse_rotate_b(ps, 0);
-			else
-				rotate_b(ps, 0);
-		}
-		i++;
-	}
-}
-
-int	get_median_index(t_list *stack, int min, int max)
+int	get_mid_point(t_list *stack, int min, int max)
 {
 	t_list	*head;
-	int		median_pos;
+	int		mid_point;
 	int		i;
 
 	i = 0;
-	median_pos = -1;
+	mid_point = -1;
 	head = stack;
-	while (head != NULL && median_pos == -1)
+	while (head != NULL && mid_point == -1)
 	{
 		if (*(int *)head->content == min || *(int *)head->content == max)
-			median_pos = i;
+			mid_point = i;
 		head = head->next;
 		i++;
 	}
-	return (median_pos);
+	return (mid_point);
 }
 
 /*
@@ -94,7 +69,7 @@ value to the other stack.
 */
 void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max)
 {
-	int		median_pos;
+	int		mid_point;
 	t_list	*stack;
 	int		size;
 
@@ -103,11 +78,11 @@ void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max)
 	if (stack_label == 'b')
 		stack = ps->b;
 	size = ft_lstsize(stack);
-	median_pos = get_median_index(stack, min, max);
-	if (median_pos > size / 2)
-		n_rotations(ps, stack_label, size - median_pos, 1);
+	mid_point = get_mid_point(stack, min, max);
+	if (mid_point > size / 2)
+		rotate_n(ps, stack_label, size - mid_point, 1);
 	else
-		n_rotations(ps, stack_label, median_pos, 0);
+		rotate_n(ps, stack_label, mid_point, 0);
 	if (stack_label == 'a')
 		push_b(ps);
 	if (stack_label == 'b')
