@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 11:11:05 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/03 12:46:16 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		is_sorted(t_list *stack);
 void	print_stacks(t_push_swap *ps);
 void	free_array(char **arr);
 int		count_params(int argc, char **argv);
+void	sort_array(int *array, int len);
 
 /* operations */
 int		swap_a(t_push_swap *ps, int mute);
@@ -57,6 +58,7 @@ void	sort(t_push_swap *ps);
 /* sort_utils.c */
 int		get_max(t_list *stack);
 int		get_min(t_list *stack);
+int		get_median(t_list *stack);
 void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max);
 
 #	endif

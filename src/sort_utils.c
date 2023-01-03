@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 11:08:45 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/03 12:44:43 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,27 @@ int	get_mid_point(t_list *stack, int min, int max)
 		i++;
 	}
 	return (mid_point);
+}
+
+int	get_median(t_list *stack)
+{
+	int		*array;
+	int		size;
+	int		i;
+	t_list	*head;
+
+	i = -1;
+	size = ft_lstsize(stack);
+	array = ft_calloc(size, sizeof(int));
+	head = stack;
+	while (++i < size)
+	{
+		array[i] = *(int *)head->content;
+		head = head->next;
+	}
+	if (size % 2 != 0)
+		return (array[size / 2]);
+	return ((array[size / 2 - 1] + array[size / 2]) / 2);
 }
 
 /*
