@@ -6,11 +6,18 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 16:54:39 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/04 11:00:57 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	get_stats(t_push_swap *ps)
+{
+	ps->max = get_max(ps->a);
+	ps->min = get_min(ps->a);
+	ps->median = get_median(ps->a);
+}
 
 void	sort_3(t_push_swap *ps)
 {
@@ -68,6 +75,7 @@ void	sort_5(t_push_swap *ps)
 
 void	sort(t_push_swap *ps)
 {
+	get_stats(ps);
 	if (ps->a == NULL || is_sorted(ps->a))
 		return ;
 	if (ps->arr_len == 2)
@@ -77,5 +85,5 @@ void	sort(t_push_swap *ps)
 	else if (ps->arr_len <= 5)
 		sort_5(ps);
 	else
-		quicksort_a(ps, ps->arr_len);
+		sort_big(ps);
 }

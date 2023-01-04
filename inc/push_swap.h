@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 18:05:12 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/04 10:53:07 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct s_push_swap
 	t_list	*b;
 	int		*int_array;
 	int		arr_len;
+	int		min;
+	int		max;
+	int		median;
 	t_list	*moves;
 }	t_push_swap;
 
