@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:44:12 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 18:26:24 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:39:18 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,27 @@
 
 void	sort_big(t_push_swap *ps)
 {
-	int	min;
-
-	if (is_sorted(ps->a))
-		return ;
-	while (ps->a->next != NULL && (ps->b != NULL || !is_sorted(ps->a)))
+	while (ft_lstsize(ps->a) > 2)
 	{
-		min = get_min(ps->a);
-		optimum_rotate(ps, 'a', min, INT_MAX);
-	}
-	while (ps->b != NULL)
-		push_a(ps);
-	return ;
-}
-
-void	quicksort_a(t_push_swap *ps, int n)
-{
-	int	partition_len;
-	int	median;
-
-	if (n == 1)
-		return ;
-	partition_len = 0;
-	median = get_median(ps->a);
-	while (partition_len < n / 2)
-	{
-		if (*(int *)ps->a->content <= median)
+		if (*(int *)ps->a->content != ps->min &&
+			*(int *)ps->a->content != ps->max)
 		{
 			push_b(ps);
-			partition_len++;
+			if (*(int *)ps->b->content > ps->median)
+				rotate_b(ps, 0);
 		}
 		else
 			rotate_a(ps, 0);
 	}
-	quicksort_a(ps, n - partition_len);
-	quicksort_b(ps);
+	if (*(int *)ps->a->content < *(int *)ps->a->next->content)
+		swap_a(ps, 0);
+	insertion_sort(ps);
+	reverse_rotate_a(ps, 0);
 }
-
-void	quicksort_b(t_push_swap *ps)
+void	insertion_sort(t_push_swap *ps)
 {
-	/* revisar esto, porque ya está funcionando casi */
 	while (ps->b != NULL)
 	{
-		if (*(int *)ps->b->content < *(int *)ps->a->content)
-			optimum_rotate(ps, 'b', INT_MIN, get_max(ps->b));
+		optimum_rotate(ps, 'b', INT_MIN, get_max(ps->b));
 	}
 }

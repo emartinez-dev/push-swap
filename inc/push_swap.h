@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/04 10:53:07 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/04 18:39:42 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ int		reverse_rotate_r(t_push_swap *ps);
 /* sort.c */
 void	sort(t_push_swap *ps);
 void	sort_big(t_push_swap *ps);
-void	quicksort_a(t_push_swap *ps, int n);
-void	quicksort_b(t_push_swap *ps);
+void	insertion_sort(t_push_swap *ps);
 
 /* sort_utils.c */
 int		get_max(t_list *stack);
