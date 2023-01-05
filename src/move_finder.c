@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:16:30 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 17:57:53 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:37:43 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,19 @@ void	find_moves_b(t_push_swap *ps, t_list *b, t_move_finder *moves)
 int	check_index_backwards(int n, t_list *list, int size)
 {
 	int		i;
-	t_list	*head;
+	t_list	*reverse_head;
+	t_list	*reverse;
 
-	head = list;
+	reverse = reverse_linked_list(list);
+	reverse_head = reverse;
 	i = 0;
-	while (1)
+	while (n < *(int *)reverse_head->content)
 	{
-		while (++i < size)
-			head = head->next;
-		if (n < *(int *)head->content)
-		{
-			head = list;
-			size--;
-			i = 0;
-		}
-		else
-			break ;
+		reverse_head = reverse_head->next;
+		i++;
 	}
-	return (size);
+	ft_lstclear(&reverse, do_nothing);
+	return (size - i);
 }
 
 /* find the position to insert it on stack a*/

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 17:58:42 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 20:15:17 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	print_stacks(t_push_swap *ps);
 void	free_array(char **arr);
 int		count_params(int argc, char **argv);
 void	sort_array(int *array, int len);
+t_list	*reverse_linked_list(t_list *list);
 
 /* operations */
 int		swap_a(t_push_swap *ps, int mute);
