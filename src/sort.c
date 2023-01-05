@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/04 11:00:57 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:23:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void	sort(t_push_swap *ps)
 	else if (ps->arr_len <= 5)
 		sort_5(ps);
 	else
-		sort_big(ps);
+		sort_best_insertion(ps);
 }

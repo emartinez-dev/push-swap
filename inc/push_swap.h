@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/04 18:39:42 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:23:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ typedef struct s_push_swap
 	int		median;
 	t_list	*moves;
 }	t_push_swap;
+
+typedef struct s_move_finder
+{
+	int	a_rot;
+	int	a_reverse;
+	int	b_rot;
+	int	b_reverse;
+	int	total;
+} t_move_finder;
 
 int		secure_atoi(char *nbr, int *input);
 void	check_duplicates(int *input_arr, int arr_len);
@@ -57,8 +66,10 @@ int		reverse_rotate_r(t_push_swap *ps);
 
 /* sort.c */
 void	sort(t_push_swap *ps);
-void	sort_big(t_push_swap *ps);
-void	insertion_sort(t_push_swap *ps);
+void	sort_best_insertion(t_push_swap *ps);
+
+/* move_finder.c */
+void	do_best_moves(t_push_swap *ps);
 
 /* sort_utils.c */
 int		get_max(t_list *stack);

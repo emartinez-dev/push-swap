@@ -6,13 +6,33 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:44:12 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/04 18:39:18 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 12:23:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	sort_big(t_push_swap *ps)
+void	align_stack(t_push_swap *ps)
+{
+	int		min;
+	t_list	*a;
+	int		i;
+
+	a = ps->a;
+	min = get_min(ps->a);
+	i = 0;
+	while (*(int *)a->content != min)
+	{
+		a = a->next;
+		i++;
+	}
+	if (i > ft_lstsize(ps->a) / 2)
+		rotate_n(ps, 'a', ft_lstsize(ps->a) - i, 1);
+	else
+		rotate_n(ps, 'a', i, 0);
+}
+
+void	sort_best_insertion(t_push_swap *ps)
 {
 	while (ft_lstsize(ps->a) > 2)
 	{
@@ -28,13 +48,7 @@ void	sort_big(t_push_swap *ps)
 	}
 	if (*(int *)ps->a->content < *(int *)ps->a->next->content)
 		swap_a(ps, 0);
-	insertion_sort(ps);
-	reverse_rotate_a(ps, 0);
-}
-void	insertion_sort(t_push_swap *ps)
-{
 	while (ps->b != NULL)
-	{
-		optimum_rotate(ps, 'b', INT_MIN, get_max(ps->b));
-	}
+		do_best_moves(ps);
+	align_stack(ps);
 }
