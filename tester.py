@@ -14,6 +14,20 @@ def configure_logger(args):
 	else:
 		log.basicConfig(format="%(levelname)s: %(message)s", level=log.CRITICAL)
 
+def printc(text, color):
+    colors = {
+        "red": "\033[91m",
+        "green": "\033[92m",
+        "yellow": "\033[93m",
+        "blue": "\033[94m",
+        "magenta": "\033[95m",
+        "cyan": "\033[96m",
+        "white": "\033[97m",
+    }
+    if not color in colors:
+        color = "white"
+    print(colors[color] + text + "\033[0m")
+
 def test_push_swap(array_len: int, move_limit: int):
 	assert array_len > 0, "Amount of numbers must be more than 0"
 
@@ -24,11 +38,11 @@ def test_push_swap(array_len: int, move_limit: int):
 	total_instructions = 0
 
 	random_list = random.sample(range(-2147483648, 2147483648), array_len)
-	if array_len <= 5:
+	if array_len <= 6:
 		perm = permutations(random_list)
 	else:
 		perm = set()
-		for i in range(array_len):
+		for i in range(500):
 			random.shuffle(random_list)
 			perm.add(tuple(random_list))
 
@@ -60,8 +74,14 @@ def test_push_swap(array_len: int, move_limit: int):
 			error += 1
 
 	total = ok + ko + error + more_than_limit
-	print(f"N of tests: {total}\n"\
-		f"OK: {ok}\nKO: {ko}\nOver limit: {more_than_limit}\nError: {error}")
+	print(f"N of tests: {total}")
+	printc(f"OK: {ok}", "green")
+	if ko != 0:
+		printc(f"KO: {ko}", "red")
+	if more_than_limit != 0:
+		printc(f"Over limit: {more_than_limit}", "yellow")
+	if error != 0:
+		printc(f"Error: {error}", "blue")
 	print("="*80)
 	print(f"Size of the input: {array_len} numbers. Average number of moves: {total_instructions / total}")
 	print("="*80)
