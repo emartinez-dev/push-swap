@@ -37,7 +37,7 @@ def test_push_swap(array_len: int, move_limit: int):
 	more_than_limit = 0
 	total_instructions = 0
 
-	random_list = random.sample(range(-2147483648, 2147483648), array_len)
+	random_list = random.sample(range(array_len + 1), array_len)
 	if array_len <= 6:
 		perm = permutations(random_list)
 	else:
