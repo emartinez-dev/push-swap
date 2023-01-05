@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2023/01/05 12:21:01 by franmart         ###   ########.fr        #
+#    Updated: 2023/01/05 16:47:08 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,7 @@ ${NAME}: ${OBJ}
 %.o: %.c
 	@${CC} ${FLAGS} -c $^ -o $@ -g3
 
-all:
-	@${NAME}
+all: ${NAME} ${LIBFT}
 
 clean:
 	@echo "Removing files..."
