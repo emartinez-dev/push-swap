@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 12:12:49 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:49:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,15 @@ void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max)
 	int		size;
 
 	if (stack_label == 'a')
+	{
 		stack = ps->a;
+		size = ps->a_size;
+	}
 	if (stack_label == 'b')
+	{
 		stack = ps->b;
-	size = ft_lstsize(stack);
+		size = ps->b_size;
+	}
 	mid_point = get_mid_point(stack, min, max);
 	if (mid_point >= size / 2)
 		rotate_n(ps, stack_label, size - mid_point, 1);

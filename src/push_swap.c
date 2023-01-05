@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 13:34:24 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:32:11 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	parse_params(argc, argv, &ps);
 	ps.a = create_list(ps.int_array, ps.arr_len);
 	ps.b = 0;
+	ps.a_size = ps.arr_len;
+	ps.b_size = 0;
 	sort(&ps);
 	//print_stacks(&ps);
 	free(ps.int_array);

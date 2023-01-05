@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:22:49 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/30 17:53:27 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:49:25 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	swap_a(t_push_swap *ps, int mute)
 {
 	void	*ptr;
 
-	if (ft_lstsize(ps->a) < 2)
+	if (ps->a_size < 2)
 		return (0);
 	ptr = ps->a->content;
 	ps->a->content = ps->a->next->content;
@@ -30,7 +30,7 @@ int	swap_b(t_push_swap *ps, int mute)
 {
 	void	*ptr;
 
-	if (ft_lstsize(ps->b) < 2)
+	if (ps->b_size < 2)
 		return (0);
 	ptr = ps->b->content;
 	ps->b->content = ps->b->next->content;

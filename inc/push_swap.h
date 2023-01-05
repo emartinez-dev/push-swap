@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 16:43:24 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:58:42 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef struct s_push_swap
 {
 	t_list	*a;
 	t_list	*b;
+	int		a_size;
+	int		b_size;
 	int		*int_array;
 	int		arr_len;
 	int		min;
@@ -34,7 +36,7 @@ typedef struct s_move_finder
 	int	b_rot;
 	int	b_reverse;
 	int	total;
-} t_move_finder;
+}	t_move_finder;
 
 int		secure_atoi(char *nbr, int *input);
 void	check_duplicates(int *input_arr, int arr_len);

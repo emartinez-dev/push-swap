@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:15 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/03 11:09:03 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/05 17:44:31 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	push_a(t_push_swap *ps)
 	new->next = ps->a;
 	ft_lstadd_front(&ps->a, new);
 	ps->b = ps->b->next;
+	ps->b_size--;
+	ps->a_size++;
 	ft_lstdelone(temp, do_nothing);
 	ft_printf("pa\n");
 	return (1);
@@ -43,6 +45,8 @@ int	push_b(t_push_swap *ps)
 	new->next = ps->b;
 	ft_lstadd_front(&ps->b, new);
 	ps->a = ps->a->next;
+	ps->a_size--;
+	ps->b_size++;
 	ft_lstdelone(temp, do_nothing);
 	ft_printf("pb\n");
 	return (1);
