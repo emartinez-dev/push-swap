@@ -1,16 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   stats.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 12:35:14 by franmart         ###   ########.fr       */
+/*   Created: 2023/01/06 14:01:57 by franmart          #+#    #+#             */
+/*   Updated: 2023/01/06 14:16:51 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	get_stats(t_push_swap *ps)
+{
+	ps->max = get_max(ps->a);
+	ps->min = get_min(ps->a);
+	ps->median = get_median(ps->a);
+}
 
 int	get_max(t_list *stack)
 {
@@ -44,25 +51,6 @@ int	get_min(t_list *stack)
 	return (temp_min);
 }
 
-int	get_mid_point(t_list *stack, int min, int max)
-{
-	t_list	*head;
-	int		mid_point;
-	int		i;
-
-	i = 0;
-	mid_point = -1;
-	head = stack;
-	while (head != NULL && mid_point == -1)
-	{
-		if (*(int *)head->content == min || *(int *)head->content == max)
-			mid_point = i;
-		head = head->next;
-		i++;
-	}
-	return (mid_point);
-}
-
 int	get_median(t_list *stack)
 {
 	int		*array;
@@ -89,33 +77,21 @@ int	get_median(t_list *stack)
 	return (median);
 }
 
-/*
-this functions calculates the minimum amount of moves to push min or max
-value to the other stack.
-*/
-void	optimum_rotate(t_push_swap *ps, char stack_label, int min, int max)
+int	get_min_or_max(t_list *stack, int min, int max)
 {
-	int		mid_point;
-	t_list	*stack;
-	int		size;
+	t_list	*head;
+	int		minmax;
+	int		i;
 
-	if (stack_label == 'a')
+	i = 0;
+	minmax = -1;
+	head = stack;
+	while (head != NULL && minmax == -1)
 	{
-		stack = ps->a;
-		size = ps->a_size;
+		if (*(int *)head->content == min || *(int *)head->content == max)
+			minmax = i;
+		head = head->next;
+		i++;
 	}
-	if (stack_label == 'b')
-	{
-		stack = ps->b;
-		size = ps->b_size;
-	}
-	mid_point = get_mid_point(stack, min, max);
-	if (mid_point >= size / 2)
-		rotate_n(ps, stack_label, size - mid_point, 1);
-	else
-		rotate_n(ps, stack_label, mid_point, 0);
-	if (stack_label == 'a')
-		push_b(ps);
-	if (stack_label == 'b')
-		push_a(ps);
+	return (minmax);
 }
