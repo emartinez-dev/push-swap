@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 20:15:17 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:45:59 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,24 @@ t_list	*create_list(int *input, int len);
 void	parse_params(int argc, char **argv, t_push_swap *ps);
 
 /* utils.c */
-void	do_nothing(void *ptr);
 int		is_sorted(t_list *stack);
 void	print_stacks(t_push_swap *ps);
-void	free_array(char **arr);
 int		count_params(int argc, char **argv);
-void	sort_array(int *array, int len);
-t_list	*reverse_linked_list(t_list *list);
 
 /* operations */
-int		swap_a(t_push_swap *ps, int mute);
-int		swap_b(t_push_swap *ps, int mute);
-int		swap_s(t_push_swap *ps);
-int		push_a(t_push_swap *ps);
-int		push_b(t_push_swap *ps);
+void	swap_a(t_push_swap *ps, int mute);
+void	swap_b(t_push_swap *ps, int mute);
+void	swap_s(t_push_swap *ps);
+void	push_a(t_push_swap *ps);
+void	push_b(t_push_swap *ps);
 void	push_n(t_push_swap *ps, char stack, int n);
-int		rotate_a(t_push_swap *ps, int mute);
-int		rotate_b(t_push_swap *ps, int mute);
-int		rotate_r(t_push_swap *ps);
+void	rotate_a(t_push_swap *ps, int mute);
+void	rotate_b(t_push_swap *ps, int mute);
+void	rotate_r(t_push_swap *ps);
 void	rotate_n(t_push_swap *ps, char stack, int n, int reverse);
-int		reverse_rotate_a(t_push_swap *ps, int mute);
-int		reverse_rotate_b(t_push_swap *ps, int mute);
-int		reverse_rotate_r(t_push_swap *ps);
+void	reverse_rotate_a(t_push_swap *ps, int mute);
+void	reverse_rotate_b(t_push_swap *ps, int mute);
+void	reverse_rotate_r(t_push_swap *ps);
 
 /* sort.c */
 void	sort(t_push_swap *ps);
