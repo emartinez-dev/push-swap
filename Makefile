@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2023/01/05 16:47:08 by franmart         ###   ########.fr        #
+#    Updated: 2023/01/06 11:36:42 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ _SRC = 	parser.c\
 		sort.c\
 		sort_big.c\
 		sort_utils.c\
-		swaps.c\
-		pushes.c\
-		rotates.c\
-		reverse_rotates.c\
 		move_finder.c\
 		utils.c\
-		utils2.c
+		utils2.c\
+		operations/swaps.c\
+		operations/pushes.c\
+		operations/rotates.c\
+		operations/reverse_rotates.c\
 
 SRC = ${addprefix ${SRC_DIR}, ${_SRC}}
 OBJ = ${SRC:.c=.o}
