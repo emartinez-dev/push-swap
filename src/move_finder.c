@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:16:30 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 20:37:43 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:38:03 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	check_index_backwards(int n, t_list *list, int size)
 	t_list	*reverse_head;
 	t_list	*reverse;
 
-	reverse = reverse_linked_list(list);
+	reverse = ft_lstreverse(list);
 	reverse_head = reverse;
 	i = 0;
 	while (n < *(int *)reverse_head->content)
@@ -62,7 +62,7 @@ int	check_index_backwards(int n, t_list *list, int size)
 		reverse_head = reverse_head->next;
 		i++;
 	}
-	ft_lstclear(&reverse, do_nothing);
+	ft_lstclear(&reverse, ft_do_nothing);
 	return (size - i);
 }
 

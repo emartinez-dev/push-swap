@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2023/01/06 11:36:42 by franmart         ###   ########.fr        #
+#    Updated: 2023/01/06 12:39:58 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ _SRC = 	parser.c\
 		sort_utils.c\
 		move_finder.c\
 		utils.c\
-		utils2.c\
 		operations/swaps.c\
 		operations/pushes.c\
 		operations/rotates.c\

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 17:42:11 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/05 17:49:00 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:35:14 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	get_median(t_list *stack)
 		array[i] = *(int *)head->content;
 		head = head->next;
 	}
-	sort_array(array, size);
+	ft_bubblesort(array, size);
 	if (size % 2 != 0)
 		median = array[size / 2];
 	else

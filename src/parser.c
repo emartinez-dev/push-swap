@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2022/12/29 16:14:08 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:36:07 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	parse_params(int argc, char **argv, t_push_swap *ps)
 			while (s_arg[++j])
 				ps->int_array[arr_i + j] = secure_atoi(s_arg[j], ps->int_array);
 			arr_i++;
-			free_array(s_arg);
+			ft_free_array(s_arg);
 		}
 		arr_i++;
 		i++;
