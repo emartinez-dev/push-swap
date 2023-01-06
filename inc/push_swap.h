@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 14:42:17 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:32:04 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		count_params(int argc, char **argv);
 /* utils.c */
 int		is_sorted(t_list *stack);
 void	print_stacks(t_push_swap *ps);
+void	init_stacks(t_push_swap *ps);
 
 /* sort.c */
 void	sort(t_push_swap *ps);
@@ -56,8 +57,8 @@ void	align_stack(t_push_swap *ps);
 
 /* sort_small.c */
 void	push_minmax(t_push_swap *ps, char stack_label, int min, int max);
-void	sort_3(t_push_swap *ps);
-void	sort_5(t_push_swap *ps);
+void	sort_three(t_push_swap *ps);
+void	sort_five(t_push_swap *ps);
 
 /* sorting_algorithm.c */
 void	cheapest_insertion(t_push_swap *ps);

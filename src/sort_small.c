@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 14:17:46 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:31:25 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	push_minmax(t_push_swap *ps, char stack_label, int min, int max)
 		push_a(ps);
 }
 
-void	sort_3(t_push_swap *ps)
+void	sort_three(t_push_swap *ps)
 {
 	int	max;
 	int	min;
@@ -70,7 +70,7 @@ void	sort_3(t_push_swap *ps)
 		swap_a(ps, 0);
 }
 
-void	sort_5(t_push_swap *ps)
+void	sort_five(t_push_swap *ps)
 {
 	int		min;
 	int		max;
@@ -84,7 +84,7 @@ void	sort_5(t_push_swap *ps)
 		else
 			push_minmax(ps, 'a', min, max);
 	}
-	sort_3(ps);
+	sort_three(ps);
 	while (ps->b != NULL)
 	{
 		if (*(int *)ps->b->content == min)

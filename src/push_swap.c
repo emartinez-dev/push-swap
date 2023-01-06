@@ -6,19 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 14:10:45 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:30:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	init_stacks(t_push_swap *ps)
-{
-	ps->a = array_to_list(ps->int_array, ps->arr_len);
-	ps->b = NULL;
-	ps->a_size = ps->arr_len;
-	ps->b_size = 0;
-}
 
 int	main(int argc, char **argv)
 {
