@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:20:03 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 16:51:45 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:38:55 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	exec_instructions(t_push_swap *ps)
 	char	*command;
 	int		status;
 
+	if (ps->a == NULL)
+		return (0);
 	command = ft_gnl(STDIN_FILENO);
 	status = 0;
 	while (command != NULL && status == 0)

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:44:12 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 16:39:29 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:37:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	sort(t_push_swap *ps)
 {
-	get_stats(ps);
 	if (ps->a == NULL || is_sorted(ps->a))
 		return ;
+	get_stats(ps);
 	if (ps->arr_len == 2)
 		swap_a(ps, 0);
 	else if (ps->arr_len == 3)

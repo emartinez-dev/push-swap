@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 15:29:58 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:46:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_sorted(t_list *stack)
 {
-	while (stack->next != NULL)
+	while (stack != NULL && stack->next != NULL)
 	{
 		if (*(int *)stack->content > *(int *)stack->next->content)
 			return (0);

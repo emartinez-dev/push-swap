@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 15:30:00 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 18:43:00 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_push_swap	push_swap;
 
+	if (argc < 2)
+		return (0);
 	parse_params(argc, argv, &push_swap);
 	check_duplicates(push_swap.int_array, push_swap.arr_len);
 	init_stacks(&push_swap);
