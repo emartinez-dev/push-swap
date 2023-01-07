@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 13:53:38 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:27:11 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,16 @@ void	parse_params(int argc, char **argv, t_push_swap *ps)
 	while (++i < argc)
 	{
 		if (ft_strchr(argv[i], ' ') == 0)
-			ps->int_array[arr_i] = secure_atoi(argv[i], ps->int_array);
+			ps->int_array[arr_i++] = secure_atoi(argv[i], ps->int_array);
 		else
 		{
 			j = -1;
 			argx = ft_split(argv[i], ' ');
 			while (argx[++j])
 				ps->int_array[arr_i + j] = secure_atoi(argx[j], ps->int_array);
-			arr_i++;
+			arr_i += j;
 			ft_free_array(argx);
 		}
-		arr_i++;
 	}
 }
 
