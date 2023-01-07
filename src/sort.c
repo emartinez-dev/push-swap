@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:44:12 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 15:31:25 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:39:29 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	split_and_sort(t_push_swap *ps)
 		if (*(int *)ps->a->content != ps->min
 			&& *(int *)ps->a->content != ps->max)
 		{
-			push_b(ps);
+			push_b(ps, 0);
 			if (*(int *)ps->b->content > ps->median)
 				rotate_b(ps, 0);
 		}

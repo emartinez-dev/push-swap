@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:16:30 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 14:44:31 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:39:05 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	cheapest_insertion(t_push_swap *ps)
 	}
 	rotate_n(ps, 'a', best_moves.a_rot, best_moves.a_reverse);
 	rotate_n(ps, 'b', best_moves.b_rot, best_moves.b_reverse);
-	push_a(ps);
+	push_a(ps, 0);
 }
 
 void	swap_moves(t_moves *a, t_moves *b)

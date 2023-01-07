@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 15:31:25 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:40:12 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	push_minmax(t_push_swap *ps, char stack_label, int min, int max)
 	else
 		rotate_n(ps, stack_label, mid_point, 0);
 	if (stack_label == 'a')
-		push_b(ps);
+		push_b(ps, 0);
 	if (stack_label == 'b')
-		push_a(ps);
+		push_a(ps, 0);
 }
 
 void	sort_three(t_push_swap *ps)
@@ -80,7 +80,7 @@ void	sort_five(t_push_swap *ps)
 	while (ft_lstsize(ps->a) > 3)
 	{
 		if (*(int *)ps->a->content == min || *(int *)ps->a->content == max)
-			push_b(ps);
+			push_b(ps, 0);
 		else
 			push_minmax(ps, 'a', min, max);
 	}
@@ -88,10 +88,10 @@ void	sort_five(t_push_swap *ps)
 	while (ps->b != NULL)
 	{
 		if (*(int *)ps->b->content == min)
-			push_a(ps);
+			push_a(ps, 0);
 		else if (*(int *)ps->b->content == max)
 		{
-			push_a(ps);
+			push_a(ps, 0);
 			rotate_a(ps, 0);
 		}
 	}

@@ -6,13 +6,13 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:15 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 12:43:37 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:36:53 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-void	push_a(t_push_swap *ps)
+void	push_a(t_push_swap *ps, int mute)
 {
 	t_list	*new;
 	t_list	*temp;
@@ -28,10 +28,11 @@ void	push_a(t_push_swap *ps)
 	ps->b_size--;
 	ps->a_size++;
 	ft_lstdelone(temp, ft_do_nothing);
-	ft_printf("pa\n");
+	if (!mute)
+		ft_printf("pa\n");
 }
 
-void	push_b(t_push_swap *ps)
+void	push_b(t_push_swap *ps, int mute)
 {
 	t_list	*new;
 	t_list	*temp;
@@ -47,7 +48,8 @@ void	push_b(t_push_swap *ps)
 	ps->a_size--;
 	ps->b_size++;
 	ft_lstdelone(temp, ft_do_nothing);
-	ft_printf("pb\n");
+	if (!mute)
+		ft_printf("pb\n");
 }
 
 void	push_n(t_push_swap *ps, char stack, int n)
@@ -58,9 +60,9 @@ void	push_n(t_push_swap *ps, char stack, int n)
 	while (i < n)
 	{
 		if (stack == 'a')
-			push_a(ps);
+			push_a(ps, 0);
 		if (stack == 'b')
-			push_b(ps);
+			push_b(ps, 0);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 15:32:04 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:34:11 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,16 @@ int		get_min_or_max(t_list *stack, int min, int max);
 /* operations */
 void	swap_a(t_push_swap *ps, int mute);
 void	swap_b(t_push_swap *ps, int mute);
-void	swap_s(t_push_swap *ps);
-void	push_a(t_push_swap *ps);
-void	push_b(t_push_swap *ps);
+void	swap_s(t_push_swap *ps, int mute);
+void	push_a(t_push_swap *ps, int mute);
+void	push_b(t_push_swap *ps, int mute);
 void	push_n(t_push_swap *ps, char stack, int n);
 void	rotate_a(t_push_swap *ps, int mute);
 void	rotate_b(t_push_swap *ps, int mute);
-void	rotate_r(t_push_swap *ps);
+void	rotate_r(t_push_swap *ps, int mute);
 void	rotate_n(t_push_swap *ps, char stack, int n, int reverse);
 void	reverse_rotate_a(t_push_swap *ps, int mute);
 void	reverse_rotate_b(t_push_swap *ps, int mute);
-void	reverse_rotate_r(t_push_swap *ps);
+void	reverse_rotate_r(t_push_swap *ps, int mute);
 
 #	endif

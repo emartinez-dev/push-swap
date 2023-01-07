@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:22:49 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 12:45:31 by franmart         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:34:38 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ void	swap_b(t_push_swap *ps, int mute)
 		ft_printf("sb\n");
 }
 
-void	swap_s(t_push_swap *ps)
+void	swap_s(t_push_swap *ps, int mute)
 {
 	swap_a(ps, 1);
 	swap_b(ps, 1);
-	ft_printf("ss\n");
+	if (!mute)
+		ft_printf("ss\n");
 }
