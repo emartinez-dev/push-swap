@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 11:20:04 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:24:56 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	secure_atoi(char *atoi_nbr, int *input_arr)
 	number = ft_atol(atoi_nbr);
 	if (number != (int) number)
 	{
-		ft_printf("Error: Input %s is not a valid integer.\n", atoi_nbr);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 		free(input_arr);
 		exit(1);
 	}
@@ -77,8 +77,7 @@ void	check_duplicates(int *input_arr, int arr_len)
 		{
 			if (input_arr[i] == input_arr[j])
 			{
-				ft_printf("Error: Input number %d is duplicated.\n",
-					input_arr[i]);
+				ft_putstr_fd("Error\n", STDERR_FILENO);
 				free(input_arr);
 				exit(2);
 			}
