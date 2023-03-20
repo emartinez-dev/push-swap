@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:40:05 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 18:46:15 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:18:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,32 @@ void	init_stacks(t_push_swap *ps)
 	ps->b = NULL;
 	ps->a_size = ps->arr_len;
 	ps->b_size = 0;
+}
+
+long	ft_atol(char *str)
+{
+	int		i;
+	int		sign;
+	long	result;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -sign;
+		i++;
+	}
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			result = result * 10 + (str[i] - '0');
+		else
+			return (result * sign);
+		i++;
+	}
+	return (result * sign);
 }

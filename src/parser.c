@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 17:27:11 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/20 11:20:04 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,15 @@ inside this function if an error ocurs) */
 
 int	secure_atoi(char *atoi_nbr, int *input_arr)
 {
-	int		number;
-	char	*str_number;
+	long	number;
 
-	number = ft_atoi(atoi_nbr);
-	str_number = ft_itoa(number);
-	if (atoi_nbr[0] == '+')
-		atoi_nbr++;
-	if (ft_strncmp(atoi_nbr, str_number, ft_strlen(atoi_nbr)) != 0)
+	number = ft_atol(atoi_nbr);
+	if (number != (int) number)
 	{
 		ft_printf("Error: Input %s is not a valid integer.\n", atoi_nbr);
 		free(input_arr);
-		free(str_number);
 		exit(1);
 	}
-	free(str_number);
 	return (number);
 }
 
