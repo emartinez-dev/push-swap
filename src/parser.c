@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 11:24:56 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:42:03 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,20 @@ inside this function if an error ocurs) */
 int	secure_atoi(char *atoi_nbr, int *input_arr)
 {
 	long	number;
+	int		i;
+	int		n_digits;
 
+	i = -1;
+	n_digits = 0;
+	while (atoi_nbr[++i] != '\0')
+		if (ft_isdigit(atoi_nbr[i]))
+			n_digits++;
+	i = 0;
+	while (atoi_nbr[i] != '\0' && (ft_isdigit(atoi_nbr[i]) || \
+		atoi_nbr[i] == ' ' || atoi_nbr[i] == '-' || atoi_nbr[i] == '+'))
+		i++;
 	number = ft_atol(atoi_nbr);
-	if (number != (int) number)
+	if (number != (int) number || (i == 0 || n_digits == 0))
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		free(input_arr);
