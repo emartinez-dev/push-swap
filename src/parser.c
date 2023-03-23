@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 12:42:03 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:01:31 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	secure_atoi(char *atoi_nbr, int *input_arr)
 		atoi_nbr[i] == ' ' || atoi_nbr[i] == '-' || atoi_nbr[i] == '+'))
 		i++;
 	number = ft_atol(atoi_nbr);
-	if (number != (int) number || (i == 0 || n_digits == 0))
+	if (number != (int) number || (i == 0 || n_digits == 0 || \
+		ft_isalpha(atoi_nbr[i])))
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		free(input_arr);
