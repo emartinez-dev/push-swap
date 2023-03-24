@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 11:17:31 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/24 09:30:16 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_moves
 
 /* parser.c */
 void	parse_params(int argc, char **argv, t_push_swap *ps);
-int		secure_atoi(char *nbr, int *input);
+int		secure_atoi(char *nbr, int *input, char **char_arr);
 void	check_duplicates(int *input_arr, int arr_len);
 t_list	*array_to_list(int *input, int len);
 int		count_params(int argc, char **argv);

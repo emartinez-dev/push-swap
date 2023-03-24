@@ -6,7 +6,7 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:40:52 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 12:42:03 by franmart         ###   ########.fr       */
+/*   Updated: 2023/03/24 09:30:12 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void	parse_params(int argc, char **argv, t_push_swap *ps)
 	while (++i < argc)
 	{
 		if (ft_strchr(argv[i], ' ') == 0)
-			ps->int_array[arr_i++] = secure_atoi(argv[i], ps->int_array);
+			ps->int_array[arr_i++] = secure_atoi(argv[i], ps->int_array, 0);
 		else
 		{
 			j = -1;
 			argx = ft_split(argv[i], ' ');
 			while (argx[++j])
-				ps->int_array[arr_i + j] = secure_atoi(argx[j], ps->int_array);
+				ps->int_array[arr_i + j] = secure_atoi(argx[j], ps->int_array, \
+					argx);
 			arr_i += j;
 			ft_free_array(argx);
 		}
@@ -50,7 +51,7 @@ void	parse_params(int argc, char **argv, t_push_swap *ps)
 Because I can't return any special value like -1 on error, I must free the array
 inside this function if an error ocurs) */
 
-int	secure_atoi(char *atoi_nbr, int *input_arr)
+int	secure_atoi(char *atoi_nbr, int *input_arr, char **char_arr)
 {
 	long	number;
 	int		i;
@@ -69,6 +70,8 @@ int	secure_atoi(char *atoi_nbr, int *input_arr)
 	if (number != (int) number || (i == 0 || n_digits == 0))
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
+		if (char_arr)
+			ft_free_array(char_arr);
 		free(input_arr);
 		exit(1);
 	}
