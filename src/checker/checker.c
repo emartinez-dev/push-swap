@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:20:24 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/20 13:02:35 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:54:15 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/checker.h"
+#include "checker.h"
 
 int	main(int argc, char **argv)
 {

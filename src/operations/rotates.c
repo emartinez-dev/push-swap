@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 18:23:37 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 16:36:37 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:55:10 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "push_swap.h"
 
 void	rotate_a(t_push_swap *ps, int mute)
 {

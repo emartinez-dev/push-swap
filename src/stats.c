@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:01:57 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/06 14:16:51 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:53:17 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 void	get_stats(t_push_swap *ps)
 {

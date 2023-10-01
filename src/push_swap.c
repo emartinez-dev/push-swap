@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:36:13 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 18:43:00 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:53:17 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {

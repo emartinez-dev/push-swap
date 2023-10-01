@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 12:16:30 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 16:39:05 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:53:17 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
 /* get the least number of moves to put an element on top of the Stack B and
 find its place on Stack A */

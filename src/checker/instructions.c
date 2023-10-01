@@ -6,11 +6,11 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 16:20:03 by franmart          #+#    #+#             */
-/*   Updated: 2023/01/07 19:26:21 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:54:13 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/checker.h"
+#include "checker.h"
 
 int	parse_instructions(char *command, t_push_swap *ps, int command_len)
 {

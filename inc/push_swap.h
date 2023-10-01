@@ -6,14 +6,14 @@
 /*   By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 12:41:33 by franmart          #+#    #+#             */
-/*   Updated: 2023/03/24 09:30:16 by franmart         ###   ########.fr       */
+/*   Updated: 2023/10/01 18:52:34 by franmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #	ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../lib/libft/include/libft.h"
+# include "libft.h"
 
 typedef struct s_push_swap
 {

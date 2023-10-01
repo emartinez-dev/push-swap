@@ -6,7 +6,7 @@
 #    By: franmart <franmart@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:15:27 by franmart          #+#    #+#              #
-#    Updated: 2023/01/07 17:41:50 by franmart         ###   ########.fr        #
+#    Updated: 2023/10/01 18:50:53 by franmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,24 +52,25 @@ BONUS_OBJ = ${BONUS:.c=.o}
 LIBFT = lib/libft/libft.a
 LIBFT_DIR = lib/libft
 
-INCLUDES = -Iinc -L ${LIBFT_DIR} -lft
+INCLUDES = -I ./inc -I ${LIBFT_DIR}/include
 
 ${NAME}: ${OBJ}
 	@echo "Compiling $(NAME)..."
 	@echo "Compiling dependencies..."
 	@$(MAKE) -s all bonus -C $(LIBFT_DIR)
-	@$(CC) $(INCLUDES) $(OBJ) -o $(NAME) $(INCLUDES)
+	@$(CC) $(INCLUDES) $(OBJ) -L$(LIBFT_DIR) -lft -o $(NAME)
 	@echo "$(NAME) compiled!"
 
 ${BONUS_NAME}: ${BONUS_OBJ}
 	@echo "Compiling $(BONUS_NAME)..."
 	@echo "Compiling dependencies..."
 	@$(MAKE) -s all bonus -C $(LIBFT_DIR)
-	@$(CC) $(INCLUDES) $(BONUS_OBJ) -o $(BONUS_NAME) $(INCLUDES)
+	@$(CC) $(INCLUDES) $(BONUS_OBJ) -L$(LIBFT_DIR) -lft -o $(BONUS_NAME)
 	@echo "$(BONUS_NAME) compiled!"
 
 %.o: %.c
-	@${CC} ${FLAGS} -c $^ -o $@ -g3
+	@git submodule update --init --recursive
+	@${CC} ${FLAGS} $(INCLUDES) -c $^ -o $@
 
 bonus: $(BONUS_NAME) ${LIBFT}
 
@@ -88,4 +89,10 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY:	all clean fclean re bonus
+test: ${NAME} bonus
+	python3 tester.py -n 3
+	python3 tester.py -n 5
+	python3 tester.py -n 100
+	python3 tester.py -n 500
+
+.PHONY:	all clean fclean re bonus test
